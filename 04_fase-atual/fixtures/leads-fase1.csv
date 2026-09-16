@@ -1,0 +1,4 @@
+external_id,nome_ficticio,email_ficticio,telefone_ficticio,origem,campanha,produto,status
+L-001,Empresa Alfa,alfa@example.invalid,+5500000000001,Google Ads,Campanha A,Automec,novo
+L-002,Empresa Beta,beta@example.invalid,+5500000000002,desconhecida,,Hiper,novo
+L-003,Empresa Gama,gama@example.invalid,+5500000000003,Meta Ads,Campanha B,Climb,novo
