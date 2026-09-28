@@ -60,4 +60,4 @@ Integrações Google/Meta Ads, canal WhatsApp real, IA respondente, follow-up au
 
 ---
 
-**Arquivada em 28/09/2026** — liberação excepcional da Fase 2 autorizada pela consultora sem evidência de conclusão desta fase. As 17 tasks permanecem devidas; ver `phase-closure-manifest.json`.
+**Arquivada em 28/09/2026** — a Fase 2 (Inteligência de mídia) está aberta em `04_fase-atual/`.
