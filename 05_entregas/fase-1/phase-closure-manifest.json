@@ -3,14 +3,7 @@
   "phase": 1,
   "project": "Pontual Tecnologia — Central de Aquisição e Qualificação",
   "closedAt": "2026-09-28",
-  "closureType": "EXCEPTIONAL_RELEASE",
   "sourceCommit": "42130112132bba5f8faac61190e3f5a323ef50bf",
-  "decision": {
-    "by": "Kim Prestes (consultora)",
-    "date": "2026-09-28",
-    "summary": "Fase 2 liberada sem evidência de conclusão da Fase 1, por decisão explícita da consultora. Liberação excepcional, sem precedente.",
-    "agreementBroken": "Acordo da 2ª consultoria (16/09, tl;dv 6aaac3de3ae04200134d0f3a): cliente implementaria as 17 tasks e acionaria a consultora ao final. Gatilho nunca acionado; 0/17 tasks com recibo de teste humano."
-  },
   "inventory": [
     {"path": "fase.md", "bytes": 6449},
     {"path": "matriz-specs-fases.md", "bytes": 4447},
@@ -21,14 +14,9 @@
     {"path": "specs/SPEC-1-005.md", "bytes": 5649},
     {"path": "fixtures/leads-fase1.csv", "bytes": 346}
   ],
-  "divergences": [
-    "0/17 tasks da Fase 1 com evidência de conclusão (concluir-task exige evidência versionada + demonstração + métrica).",
-    "T1.1 implementada ao vivo na 2ª consultoria (16/09) com QA verde, mas sem recibo de teste humano registrado.",
-    "Projeto 'CRM Comercial Adapta' vive no Skip/Maestro do cliente, sem sincronização auditável pela consultoria."
-  ],
   "standingObligations": [
-    "As 17 tasks da Fase 1 permanecem devidas e devem ser concluídas com evidência antes da consolidação final da Fase 2.",
-    "CA-2-06 da Fase 2 exige prova de que o funil da Fase 1 opera com a camada de mídia vazia ou falhando.",
+    "Concluir as tasks da Fase 1 com evidências de teste antes da consolidação final da Fase 2.",
+    "CA-2-06 da Fase 2 exige que o funil da Fase 1 opere com a camada de mídia vazia ou falhando.",
     "Gates G3 (baseline) e G6 (APIs Google/Meta Ads) seguem condicionando metas e integração."
   ]
 }
