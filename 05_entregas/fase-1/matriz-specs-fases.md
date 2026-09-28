@@ -1,0 +1,21 @@
+# Matriz SPECs–Fase 1–Tasks
+
+| ID | Task | Leva | SPEC | CAs | Dono | Critério | Recorte da prova | Evidência esperada | Pré-condições | Status |
+|---|---|---|---|---|---|---|---|---|---|---|
+| T1.1 | Criar contas fixture e matriz de autorização server-side | A | SPEC-1-001 | CA-1-01 | Dev full-stack | CA-1-01/01a/01b: autorização, sessão, anti-brute-force e contingência governada ou ausente | RED/GREEN acesso permitido | testes de autorização por papel | checks aprovados | ☐ |
+| T1.2 | Implementar negações auditadas, sessão e exportação protegida | B | SPEC-1-001 | CA-1-01 | Dev full-stack | CA-1-01/01a/01b: negação sem vazamento, sessão e auditoria de segurança | Falha/regressão de autorização | log sanitizado de negação e testes | T1.1 aceita | ☐ |
+| T1.3 | Demonstrar acesso e entregar recibo CA-1-01 | C | SPEC-1-001 | CA-1-01 | QA | CA-1-01/01a/01b completos | Regressão integral SPEC-1-001 | recibo CA-1-01 | T1.2 aceita | ☐ |
+| T1.4 | Criar fixture CSV sintética e validador de esquema seguro | A | SPEC-1-002 | CA-1-02 | Dev dados | CA-1-02/02a: schema inválido e fórmula perigosa falham sem persistência parcial | RED/GREEN importação inválida | fixture + testes atomicidade | checks aprovados | ☐ |
+| T1.5 | Implementar importação idempotente e relatório sanitizado | B | SPEC-1-002 | CA-1-02 | Dev dados | CA-1-02/02a: importação atômica, valor não executável e relatório sanitizado | Principal/falha importação | log lote e relatório sanitizado | T1.4 aceita | ☐ |
+| T1.6 | Implementar detecção e decisão de possível duplicidade | C | SPEC-1-002 | CA-1-03 | Dev full-stack | CA-1-03: conflito preserva origem e histórico | Limite/repetição duplicidade | testes lote repetido e conflito | T1.5 aceita | ☐ |
+| T1.7 | Demonstrar importação, reversão e reconciliação | D | SPEC-1-002 | CA-1-02, CA-1-03 | QA | CA-1-02/02a/02b e CA-1-03 completos | Regressão integral SPEC-1-002 | recibo CA-1-02/03 | T1.6 aceita | ☐ |
+| T1.8 | Implementar Kanban com estágios provisórios versionados | A | SPEC-1-003 | CA-1-04 | Dev frontend | CA-1-04: lead percorre somente transições válidas | GREEN fluxo principal | capturas e testes de transição | checks aprovados | ☐ |
+| T1.9 | Implementar ficha de qualificação e motivos obrigatórios | B | SPEC-1-003 | CA-1-04 | Dev full-stack | CA-1-04: encerramento exige critérios, motivo e evidência | Limite/falha de qualificação | testes de validação por resultado | T1.8 aceita | ☐ |
+| T1.10 | Demonstrar três desfechos e regressão do Kanban | C | SPEC-1-003 | CA-1-04 | QA | CA-1-04 completo | Regressão integral SPEC-1-003 | recibo CA-1-04 | T1.9 aceita | ☐ |
+| T1.11 | Implementar fila determinística e exceção sem próxima ação | A | SPEC-1-004 | CA-1-05 | Dev full-stack | CA-1-05: lead ativo sem ação aparece na fila | RED/GREEN cobertura de ação | testes da fila por condição | checks aprovados | ☐ |
+| T1.12 | Implementar timeline imutável das mudanças críticas | B | SPEC-1-004 | CA-1-06 | Dev backend | CA-1-06: timeline append-only inclusive contra administrador | RED/GREEN auditoria crítica e negação de delete/update | testes e log sanitizado | T1.11 aceita | ☐ |
+| T1.13 | Demonstrar fila, próxima ação e timeline | C | SPEC-1-004 | CA-1-05, CA-1-06 | QA | CA-1-05 e CA-1-06 completos | Regressão integral SPEC-1-004 | recibo CA-1-05/06 | T1.12 aceita | ☐ |
+| T1.14 | Implementar consultas e cards do dashboard reconciliável | E | SPEC-1-005 | CA-1-07 | Dev full-stack | CA-1-07: totais/filtros conferem com lote | RED/GREEN reconciliação | testes com contagem esperada | T1.7 aceita | ☐ |
+| T1.15 | Implementar estado provisório e exportação segura | F | SPEC-1-005 | CA-1-07a, CA-1-08 | Dev full-stack | CA-1-07a e CA-1-08: exportação autorizada/sanitizada e baseline inconclusivo | Limite baseline inconclusivo | captura de aviso + teste CSV | T1.14 aceita | ☐ |
+| T1.16 | Provar operação degradada sem IA e APIs | G | SPEC-1-005 | CA-1-09 | QA | CA-1-09: operação essencial permanece funcional | Falha/degradação | roteiro gravado e logs | T1.15 aceita | ☐ |
+| T1.17 | Demonstrar dashboard e emitir recibo final da Fase 1 | H | SPEC-1-005 | CA-1-07, CA-1-08, CA-1-09 | QA | CA-1-07, CA-1-08 e CA-1-09 completos | Regressão integral SPEC-1-005 | recibo CA-1-07/07a/08/09 + relatório das lacunas G1–G7 | T1.16 aceita | ☐ |
