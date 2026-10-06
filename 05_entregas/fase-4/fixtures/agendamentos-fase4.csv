@@ -1,8 +1,0 @@
-agendamento_id,lead_id,produto,data,hora,responsavel,participantes,confirmado,estado_anterior,operacao
-A001,L001,Automec,2026-10-10,10:00,Apresentador Sintetico Um,Lead Alfa Sintetico,sim,,
-A002,L002,Hiper,2026-10-11,14:00,Apresentador Sintetico Dois,Lead Bravo Sintetico,nao,,criacao
-A003,L005,Climb,2026-10-12,09:30,Apresentador Sintetico Um,Lead Eco Sintetico,sim,,criacao
-A003,L005,Climb,2026-10-15,11:00,Apresentador Sintetico Um,Lead Eco Sintetico,sim,A003,reagendamento
-A004,L006,Automec,2026-10-13,16:00,Apresentador Sintetico Dois,Lead Foxtrot Sintetico,sim,,criacao
-A004,L006,Automec,,,,,A004,cancelamento
-A005,L009,Hiper,2026-10-14,08:00,,Lead India Sintetico,nao,,criacao-sem-responsavel
