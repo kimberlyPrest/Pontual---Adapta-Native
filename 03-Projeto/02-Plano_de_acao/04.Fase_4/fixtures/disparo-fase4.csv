@@ -1,0 +1,11 @@
+lote_id,contato_id,acao,canal_autorizado,aprovado_por,aprovado_em,reexecucao,resultado_esperado
+D001,C001,followup,nao,,,nao,negado-sem-gates
+D001,C002,followup,nao,,,nao,negado-sem-gates
+D002,C005,reativacao,sim,Marcelo Sintetico,2026-10-06T10:00:00Z,nao,enviado
+D002,C007,reativacao,sim,Marcelo Sintetico,2026-10-06T10:00:00Z,nao,enviado
+D002,C009,reativacao,sim,Marcelo Sintetico,2026-10-06T10:00:00Z,nao,enviado
+D002,C005,reativacao,sim,Marcelo Sintetico,2026-10-06T10:00:00Z,sim,ignorado-idempotente
+D002,C003,reativacao,sim,Marcelo Sintetico,2026-10-06T10:00:00Z,nao,excluido-opt-out
+D002,C004,reativacao,sim,Marcelo Sintetico,2026-10-06T10:00:00Z,nao,excluido-bloqueio
+D002,C006,reativacao,sim,Marcelo Sintetico,2026-10-06T10:00:00Z,nao,excluido-inelegivel
+D003,C010,reativacao,sim,,,nao,pendente-sem-aprovacao
