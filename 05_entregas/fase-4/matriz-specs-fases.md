@@ -21,7 +21,7 @@
 ## Cobertura de critérios de aceite
 
 | CA | SPEC | Tasks de prova |
-|---|---|---|---|
+|---|---|---|
 | CA-4-01 | SPEC-4-001 | T4.1, T4.2, T4.5, T4.8 |
 | CA-4-02 | SPEC-4-002 | T4.3 |
 | CA-4-03 | SPEC-4-002 | T4.6, T4.7 |
