@@ -1,0 +1,17 @@
+lead_id,canal,direcao,conteudo,timestamp,autor
+L-0001,fixture,entrada,"Bom dia, vi o anuncio de voces. Como funciona?",2026-10-01T09:00:00-03:00,lead
+L-0001,fixture,saida,"Bom dia! Obrigado pelo contato. Um especialista vai te atender em instantes.",2026-10-01T09:01:00-03:00,atendente
+L-0001,fixture,entrada,"Quanto custa o plano completo?",2026-10-01T09:05:00-03:00,lead
+L-0001,fixture,saida,"Segue a tabela de valores aprovada para o seu perfil.",2026-10-01T09:06:00-03:00,atendente
+L-0002,fixture,entrada,"Ola, quero saber sobre o servico",2026-10-01T10:00:00-03:00,lead
+L-0002,fixture,saida,"Ola! Vou te passar as informacoes e ja registro seu interesse.",2026-10-01T10:02:00-03:00,atendente
+L-0002,fixture,entrada,"Voces atendem na minha regiao?",2026-10-01T10:05:00-03:00,lead
+L-0002,fixture,saida,"Sim, atendemos sua regiao. Posso agendar uma apresentacao?",2026-10-01T10:06:00-03:00,atendente
+L-0003,fixture,entrada,"Preciso de um orcamento urgente",2026-10-02T08:30:00-03:00,lead
+L-0003,fixture,saida,"Entendido! Vou registrar sua solicitacao e chamar o responsavel.",2026-10-02T08:31:00-03:00,atendente
+L-0004,fixture,entrada,"Bom dia, sou cliente antigo e quero reativar o contrato",2026-10-02T11:00:00-03:00,lead
+L-0004,fixture,saida,"Bom dia! Vou verificar seu historico e retorno com a proposta.",2026-10-02T11:02:00-03:00,atendente
+L-0005,fixture,entrada,"Qual o prazo de entrega?",2026-10-03T14:00:00-03:00,lead
+L-0005,fixture,saida,"O prazo padrao e de X dias uteis apos a aprovacao.",2026-10-03T14:01:00-03:00,atendente
+L-0005,fixture,entrada,"Aceita parcelamento?",2026-10-03T14:05:00-03:00,lead
+L-0005,fixture,saida,"Sim, trabalhamos com parcelamento. Vou te enviar as condicoes.",2026-10-03T14:06:00-03:00,atendente
