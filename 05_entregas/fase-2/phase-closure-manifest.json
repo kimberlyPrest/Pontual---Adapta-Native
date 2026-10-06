@@ -11,7 +11,7 @@
   },
   "inventory": [
     {"path": "fase.md", "bytes": 4540},
-    {"path": "matriz-specs-fases.md", "bytes":  GitHub API returned 2226},
+    {"path": "matriz-specs-fases.md", "bytes": 2226},
     {"path": "specs/SPEC-2-001.md", "bytes": 4659},
     {"path": "specs/SPEC-2-002.md", "bytes": 4831},
     {"path": "specs/SPEC-2-003.md", "bytes": 4438},
@@ -20,7 +20,7 @@
     {"path": "tasks.json", "bytes": 1818}
   ],
   "standingObligations": [
-    "CA-3-07 da Fase 3 exige prova de que o atendimento humano permanece funcional com a IA desligada, falhando ou sem base aprovada.",
+    "CA-3-07 da Fase 3 exige prova de que o atendimento humano permanece funcional com a IA desligada, falhando ou sem base acessível.",
     "Gates G3 (baseline) e G6 (APIs Google/Meta Ads) seguem condicionando metas e integração de mídia.",
     "Gates G1/G2/G5/G6 seguem condicionando o canal real e o ICP definitivo da Fase 3."
   ]
