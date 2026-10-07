@@ -1,5 +1,12 @@
 # Changelog
 
+## 07/10/2026
+
+- Fase 4 (Follow-up, reativação e agendamento) aberta pela consultora Kim Prestes; Fase 3 arquivada em `05_entregas/fase-3/` com conclusão registrada em 07/10/2026.
+- Geradas e publicadas 5 SPECs da Fase 4: SPEC-4-001 (régua de follow-up versionada), SPEC-4-002 (segmento de reativação com prévia e exclusões), SPEC-4-003 (disparo governado com aprovação humana e idempotência), SPEC-4-004 (agendamento válido com histórico preservado), SPEC-4-005 (handoff estruturado ao apresentador e recibo final).
+- 7 critérios de aceite (CA-4-01..07), 17 tasks T4.1–T4.17 em 11 levas (A–K), fixtures sintéticas (cadências, reativação, disparo, agendamentos).
+- CA-4-04 exige aprovação humana e canal autorizado para o disparo real; sem G5/G6 a operação roda em simulação auditada; G4 condiciona valores oficiais da régua; G7 condiciona a agenda externa.
+
 ## 06/10/2026
 
 - Fase 3 (CRM conversacional e qualificação assistida) aberta pela consultora Kim Prestes; Fase 2 arquivada em `05_entregas/fase-2/` com conclusão registrada em 06/10/2026.
