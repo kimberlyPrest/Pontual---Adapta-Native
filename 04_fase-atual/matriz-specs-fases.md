@@ -1,19 +1,31 @@
-# Matriz SPECs–Fase 3–Tasks
+# Matriz de SPECs e Fases — Fase 4
 
-| ID | Task | Leva | SPEC | CAs | Dono | Critério | Recorte da prova | Evidência esperada | Pré-condições | Status |
-|---|---|---|---|---|---|---|---|---|---|---|
-| T3.1 | Criar fixture de conversas e validador de esquema | A | SPEC-3-001 | CA-3-01 | Dev dados | CA-3-01: esquema inválido e fórmula perigosa falham sem persistência parcial | RED/GREEN ingestão inválida | fixture + testes de atomicidade | Fase 2 aceita | ☐ |
-| T3.2 | Implementar ingestão idempotente de conversas | B | SPEC-3-001 | CA-3-01 | Dev dados | CA-3-01: ingestão atômica, idempotente por lote e por id externo | Principal/falha ingestão | log de lote + relatório sanitizado | T3.1 aceita | ☐ |
-| T3.3 | Implementar conversa unificada por lead | C | SPEC-3-001 | CA-3-01 | Dev frontend | CA-3-01: histórico em ordem cronológica, somente leitura | GREEN fluxo principal | capturas + testes de ordem cronológica | T3.2 aceita | ☐ |
-| T3.4 | Implementar base aprovada versionada de respostas | C | SPEC-3-002 | CA-3-02 | Dev full-stack | CA-3-02: base versionada; rascunho não afeta operação (RN-13) | RED/GREEN resposta fora da base | testes de versão e publicação | Fase 2 aceita | ☐ |
-| T3.5 | Implementar motor de sugestão com limite e fallback | D | SPEC-3-002 | CA-3-02 | Dev full-stack | CA-3-02: sugestão com fonte/confiança; fora da base não responde | Limite/falha de resposta | testes de limite e fallback | T3.4 aceita | ☐ |
-| T3.6 | Implementar transbordo com pausa da IA e retomada explícita | E | SPEC-3-003 | CA-3-03 | Dev full-stack | CA-3-03: pausa server-side + retomada auditada; sem resposta automática em transbordo | RED/GREEN transbordo | testes de pausa e retomada | T3.5 aceita | ☐ |
-| T3.7 | Implementar fila de transbordo e atribuição ao responsável | F | SPEC-3-003 | CA-3-03 | Dev frontend | CA-3-03: fila com motivo/contexto; transbordo não consumido cai na fila de exceção | GREEN fluxo principal | capturas da fila + testes | T3.6 aceita | ☐ |
-| T3.8 | Implementar timeline das conversas (append-only) | F | SPEC-3-001 | CA-3-01 | Dev backend | CA-3-01: timeline com autor/data; delete/update negado | RED/GREEN auditoria | testes de timeline e negação de delete | T3.3 aceita | ☐ |
-| T3.9 | Implementar ICP versionado por produto | G | SPEC-3-004 | CA-3-04 | Dev full-stack | CA-3-04: ICP com vigência; alteração não reclassifica histórico | RED/GREEN versionamento | testes de vigência e versão | Fase 2 aceita | ☐ |
-| T3.10 | Implementar ficha de qualificação vinculada ao ICP vigente | H | SPEC-3-004 | CA-3-04 | Dev full-stack | CA-3-04: ficha com versão, critérios e evidências; decisão humana | Principal/limite de qualificação | capturas + testes de versão | T3.9 e T3.3 aceitas | ☐ |
-| T3.11 | Implementar opt-out e supressão | H | SPEC-3-005 | CA-3-05 | Dev full-stack | CA-3-05: supressão interrompe ações automáticas e bloqueia cadências | RED/GREEN supressão | trilha de opt-out + log de negação | T3.8 aceita | ☐ |
-| T3.12 | Implementar rascunho, validação e publicação versionada | I | SPEC-3-006 | CA-3-06 | Dev full-stack | CA-3-06: publicação versionada e auditada; rascunho sem efeito | RED/GREEN publicação | trilha de publicação | T3.4 e T3.9 aceitas | ☐ |
-| T3.13 | Implementar rollback de configuração | J | SPEC-3-006 | CA-3-06 | Dev full-stack | CA-3-06: rollback restaura versão anterior preservando histórico | Limite/falha de rollback | captura do rollback + histórico | T3.12 aceita | ☐ |
-| T3.14 | Provar degradação segura e bloqueio do canal sem gates | K | SPEC-3-007 | CA-3-07 | QA | CA-3-07: operação humana sem IA; canal negado e auditado sem G1/G5/G6 | Falha/degradação | roteiro gravado + log de negação | T3.11, T3.12 e T3.13 aceitas | ☐ |
-| T3.15 | Demonstrar conversa ponta a ponta e emitir recibo final da Fase 3 | L | SPEC-3-007 | CA-3-01..07 | QA | CA-3-01..07 completos + relatório de gates | Regressão integral | recibo CA-3-01..07 + relatório de gates G1/G2/G5/G6 | T3.14 aceita | ☐ |
+| SPEC | Resultado observável | RFs | RNs | RNFs | CAs | Gates | Tasks |
+|---|---|---|---|---|---|---|---|
+| SPEC-4-001 | Régua de follow-up versionada gera próxima ação por inatividade respeitando intervalo, horário, limite e exceções | RF-13 | RN-05, RN-08, RN-13 | RNF-08 | CA-4-01 | G4 | T4.1, T4.2, T4.5, T4.8 |
+| SPEC-4-002 | Segmento de reativação com critérios, tamanho, exclusões obrigatórias e prévia sanitizada | RF-14, RF-15 | RN-07 | RNF-02 | CA-4-02, CA-4-03 | G5 | T4.3, T4.4, T4.6, T4.7 |
+| SPEC-4-003 | Disparo governado: aprovação humana, canal autorizado, idempotência e bloqueio sem gates | RF-13, RF-14 | RN-03, RN-07, RN-13, RN-14 | RNF-02, RNF-05 | CA-4-04 | G5, G6 | T4.9, T4.10, T4.11, T4.12 |
+| SPEC-4-004 | Agendamento válido com estados, confirmação e histórico append-only | RF-16 | RN-01, RN-09, RN-10 | RNF-02 | CA-4-05, CA-4-06 | G7 | T4.13, T4.14, T4.15 |
+| SPEC-4-005 | Handoff estruturado mascarado ao apresentador + recibo final da fase | RF-17 | RN-01 | RNF-02, RNF-04 | CA-4-07 | — | T4.16, T4.17 |
+
+## Cobertura de requisitos da fase
+
+| Requisito | SPEC dona | CA | Task(s) |
+|---|---|---|---|
+| RF-13 Follow-up | SPEC-4-001, SPEC-4-003 | CA-4-01, CA-4-04 | T4.1, T4.2, T4.5, T4.8, T4.9–T4.12 |
+| RF-14 Reativação segmentada | SPEC-4-002, SPEC-4-003 | CA-4-03, CA-4-04 | T4.3, T4.4, T4.6, T4.7, T4.9–T4.12 |
+| RF-15 Supressão | SPEC-4-002 | CA-4-02 | T4.3 |
+| RF-16 Agendamento | SPEC-4-004 | CA-4-05, CA-4-06 | T4.13, T4.14, T4.15 |
+| RF-17 Handoff | SPEC-4-005 | CA-4-07 | T4.16, T4.17 |
+
+## Cobertura de critérios de aceite
+
+| CA | SPEC | Tasks de prova |
+|---|---|---|
+| CA-4-01 | SPEC-4-001 | T4.1, T4.2, T4.5, T4.8 |
+| CA-4-02 | SPEC-4-002 | T4.3 |
+| CA-4-03 | SPEC-4-002 | T4.6, T4.7 |
+| CA-4-04 | SPEC-4-003 | T4.9, T4.10, T4.11, T4.12 |
+| CA-4-05 | SPEC-4-004 | T4.13, T4.14 |
+| CA-4-06 | SPEC-4-004 | T4.15 |
+| CA-4-07 | SPEC-4-005 | T4.16, T4.17 |

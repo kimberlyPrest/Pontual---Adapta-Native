@@ -1,32 +1,243 @@
 {
-  "schemaVersion": "pontual-fase3/v1",
-  "status": "PLANEJADA",
-  "specs": 7,
-  "tasks": 15,
-  "tasks_list": [
-    {"id": "T3.1", "spec": "SPEC-3-001", "ca": "CA-3-01", "leva": "A", "dono": "Dev dados", "pre": "Fase 2 aceita"},
-    {"id": "T3.2", "spec": "SPEC-3-001", "ca": "CA-3-01", "leva": "B", "dono": "Dev dados", "pre": "T3.1 aceita"},
-    {"id": "T3.3", "spec": "SPEC-3-001", "ca": "CA-3-01", "leva": "C", "dono": "Dev frontend", "pre": "T3.2 aceita"},
-    {"id": "T3.4", "spec": "SPEC-3-002", "ca": "CA-3-02", "leva": "C", "dono": "Dev full-stack", "pre": "Fase 2 aceita"},
-    {"id": "T3.5", "spec": "SPEC-3-002", "ca": "CA-3-02", "leva": "D", "dono": "Dev full-stack", "pre": "T3.4 aceita"},
-    {"id": "T3.6", "spec": "SPEC-3-003", "ca": "CA-3-03", "leva": "E", "dono": "Dev full-stack", "pre": "T3.5 aceita"},
-    {"id": "T3.7", "spec": "SPEC-3-003", "ca": "CA-3-03", "leva": "F", "dono": "Dev frontend", "pre": "T3.6 aceita"},
-    {"id": "T3.8", "spec": "SPEC-3-001", "ca": "CA-3-01", "leva": "F", "dono": "Dev backend", "pre": "T3.3 aceita"},
-    {"id": "T3.9", "spec": "SPEC-3-004", "ca": "CA-3-04", "leva": "G", "dono": "Dev full-stack", "pre": "Fase 2 aceita"},
-    {"id": "T3.10", "spec": "SPEC-3-004", "ca": "CA-3-04", "leva": "H", "dono": "Dev full-stack", "pre": "T3.9 e T3.3 aceitas"},
-    {"id": "T3.11", "spec": "SPEC-3-005", "ca": "CA-3-05", "leva": "H", "dono": "Dev full-stack", "pre": "T3.8 aceita"},
-    {"id": "T3.12", "spec": "SPEC-3-006", "ca": "CA-3-06", "leva": "I", "dono": "Dev full-stack", "pre": "T3.4 e T3.9 aceitas"},
-    {"id": "T3.13", "spec": "SPEC-3-006", "ca": "CA-3-06", "leva": "J", "dono": "Dev full-stack", "pre": "T3.12 aceita"},
-    {"id": "T3.14", "spec": "SPEC-3-007", "ca": "CA-3-07", "leva": "K", "dono": "QA", "pre": "T3.11, T3.12 e T3.13 aceitas"},
-    {"id": "T3.15", "spec": "SPEC-3-007", "ca": "CA-3-01..07", "leva": "L", "dono": "QA", "pre": "T3.14 aceita"}
-  ],
-  "criterios": [
-    {"id": "CA-3-01", "spec": "SPEC-3-001", "resumo": "evento repetido/reimportação não duplica mensagem nem lead; conversa em ordem cronológica, histórico intacto"},
-    {"id": "CA-3-02", "spec": "SPEC-3-002", "resumo": "IA só dentro da base aprovada publicada; fora da base gera transbordo; nunca improvisa preço/contrato"},
-    {"id": "CA-3-03", "spec": "SPEC-3-003", "resumo": "humano assume/devolve explicitamente sem disputa com a IA; sem resposta automática em transbordo"},
-    {"id": "CA-3-04", "spec": "SPEC-3-004", "resumo": "qualificação usa versão vigente do ICP por produto com critérios/evidências; alteração não reclassifica histórico"},
-    {"id": "CA-3-05", "spec": "SPEC-3-005", "resumo": "opt-out interrompe ações automáticas, bloqueia cadências e aparece na timeline"},
-    {"id": "CA-3-06", "spec": "SPEC-3-006", "resumo": "alteração admin: rascunho → validação → publicação versionada → rollback; rascunho sem efeito em operação"},
-    {"id": "CA-3-07", "spec": "SPEC-3-007", "resumo": "IA/canal indisponíveis mantêm atendimento humano; ativação de canal sem G1/G5/G6 negada e auditada"}
+  "fase": 4,
+  "gerada_em": "2026-10-06",
+  "tasks": [
+    {
+      "id": "T4.1",
+      "task": "Criar fixture de cadências e validador de esquema",
+      "dono": "Dev dados",
+      "spec": "SPEC-4-001",
+      "criterio": "CA-4-01",
+      "recorte": "RED/GREEN esquema inválido",
+      "evidencia": "fixture + testes de validação",
+      "pre": [
+        "Fase 3 aceita"
+      ],
+      "leva": "A",
+      "status": "planejada"
+    },
+    {
+      "id": "T4.2",
+      "task": "Implementar modelo de régua versionada (rascunho/publicação/rollback)",
+      "dono": "Dev full-stack",
+      "spec": "SPEC-4-001",
+      "criterio": "CA-4-01",
+      "recorte": "RED/GREEN versionamento",
+      "evidencia": "testes de versão e RN-13",
+      "pre": [
+        "T4.1 aceita"
+      ],
+      "leva": "B",
+      "status": "planejada"
+    },
+    {
+      "id": "T4.3",
+      "task": "Implementar filtros de exclusão obrigatórios (opt-out/bloqueio/inelegibilidade)",
+      "dono": "Dev full-stack",
+      "spec": "SPEC-4-002",
+      "criterio": "CA-4-02",
+      "recorte": "RED/GREEN supressão",
+      "evidencia": "log de exclusões + testes de negação",
+      "pre": [
+        "T4.1 aceita"
+      ],
+      "leva": "B",
+      "status": "planejada"
+    },
+    {
+      "id": "T4.4",
+      "task": "Criar fixtures de reativação, disparo e agendamentos",
+      "dono": "Dev dados",
+      "spec": "SPEC-4-002/003/004",
+      "criterio": "CA-4-02..05",
+      "recorte": "RED/GREEN fixtures",
+      "evidencia": "3 fixtures + testes",
+      "pre": [
+        "T4.1 aceita"
+      ],
+      "leva": "B",
+      "status": "planejada"
+    },
+    {
+      "id": "T4.5",
+      "task": "Implementar geração de próxima ação por inatividade",
+      "dono": "Dev full-stack",
+      "spec": "SPEC-4-001",
+      "criterio": "CA-4-01",
+      "recorte": "Principal/limite",
+      "evidencia": "log de ações + testes de intervalo",
+      "pre": [
+        "T4.2 e T4.3 aceitas"
+      ],
+      "leva": "C",
+      "status": "planejada"
+    },
+    {
+      "id": "T4.6",
+      "task": "Implementar construtor de segmento com tamanho e exclusões",
+      "dono": "Dev full-stack",
+      "spec": "SPEC-4-002",
+      "criterio": "CA-4-03",
+      "recorte": "Principal/limite",
+      "evidencia": "prévia + testes de contagem",
+      "pre": [
+        "T4.3 aceita"
+      ],
+      "leva": "C",
+      "status": "planejada"
+    },
+    {
+      "id": "T4.7",
+      "task": "Implementar prévia sanitizada antes de ativação",
+      "dono": "Dev frontend",
+      "spec": "SPEC-4-002",
+      "criterio": "CA-4-03",
+      "recorte": "GREEN fluxo principal",
+      "evidencia": "capturas da prévia + testes de máscara",
+      "pre": [
+        "T4.6 aceita"
+      ],
+      "leva": "D",
+      "status": "planejada"
+    },
+    {
+      "id": "T4.8",
+      "task": "Implementar execução da régua com horário, limite e exceções",
+      "dono": "Dev full-stack",
+      "spec": "SPEC-4-001",
+      "criterio": "CA-4-01",
+      "recorte": "Limite/falha",
+      "evidencia": "testes de janela/limite/exceção",
+      "pre": [
+        "T4.5 aceita"
+      ],
+      "leva": "D",
+      "status": "planejada"
+    },
+    {
+      "id": "T4.9",
+      "task": "Implementar preparação de lote a partir de régua e segmento",
+      "dono": "Dev full-stack",
+      "spec": "SPEC-4-003",
+      "criterio": "CA-4-04",
+      "recorte": "Principal",
+      "evidencia": "lote + testes de composição",
+      "pre": [
+        "T4.5 e T4.6 aceitas"
+      ],
+      "leva": "E",
+      "status": "planejada"
+    },
+    {
+      "id": "T4.10",
+      "task": "Implementar aprovação humana obrigatória do lote",
+      "dono": "Dev full-stack",
+      "spec": " release", "criterio": "CA-4-04",
+      "recorte": "RED/GREEN aprovação",
+      "evidencia": "trilha de aprovação + testes de pendência",
+      "pre": [
+        "T4.9 aceita"
+      ],
+      "leva": "F",
+      "status": "planejada"
+    },
+    {
+      "id": "T4.11",
+      "task": "Implementar disparo idempotente com fila de exceção",
+      "dono": "Dev full-stack",
+      "spec": "SPEC-4-003",
+      "criterio": "CA-4-04",
+      "recorte": "Limite/falha",
+      "evidencia": "log de envios + testes de reexecução",
+      "pre": [
+        "T4.10 aceita"
+      ],
+      "leva": "G",
+      "status": "planejada"
+    },
+    {
+      "id": "T4.12",
+      "task": "Bloquear disparo real sem gates G5/G6 (negação auditada)",
+      "dono": "Dev backend",
+      "spec": "SPEC-4-003",
+      "criterio": "CA-4-04",
+      "recorte": "Falha",
+      "evidencia": "log de negação + testes de bloqueio",
+      "pre": [
+        "T4.11 aceita"
+      ],
+      "leva": "H",
+      "status": "planejada"
+    },
+    {
+      "id": "T4.13",
+      "task": "Implementar registro de agendamento com campos obrigatórios (RN-09)",
+      "dono": "Dev full-stack",
+      "spec": "SPEC-4-004",
+      "criterio": "CA-4-05",
+      "recorte": "RED/GREEN campos",
+      "evidencia": "testes de validação server-side",
+      "pre": [
+        "Fase 3 aceita"
+      ],
+      "leva": "G",
+      "status": "planejada"
+    },
+    {
+      "id": "T4.14",
+      "task": "Implementar estados e confirmação do agendamento",
+      "dono": "Dev full-stack",
+      "spec": "SPEC-4-004",
+      "criterio": "CA-4-05",
+      "recorte": "Principal/limite",
+      "evidencia": "capturas + testes de estado",
+      "pre": [
+        "T4.13 aceita"
+      ],
+      "leva": "H",
+      "status": "planejada"
+    },
+    {
+      "id": "T4.15",
+      "task": "Implementar histórico append-only e indicador sem apagamento",
+      "dono": "Dev backend",
+      "spec": "SPEC-4-004",
+      "criterio": "CA-4-06",
+      "recorte": "RED/GREEN auditoria",
+      "evidencia": "testes de append-only + indicador",
+      "pre": [
+        "T4.14 aceita"
+      ],
+      "leva": "I",
+      "status": "planejada"
+    },
+    {
+      "id": "T4.16",
+      "task": "Implementar geração de handoff com máscara por permissão",
+      "dono": "Dev full-stack",
+      "spec": "SPEC-4-005",
+      "criterio": "CA-4-07",
+      "recorte": "RED/GREEN máscara",
+      "evidencia": "handoff + testes de máscara",
+      "pre": [
+        "T4.15 aceita"
+      ],
+      "leva": "J",
+      "status": "planejada"
+    },
+    {
+      "id": "T4.17",
+      "task": "Demonstrar ponta a ponta e emitir recibo final da Fase 4",
+      "dono": "QA",
+      "spec": "SPEC-4-005",
+      "criterio": "CA-4-01..07",
+      "recorte": "Regressão integral",
+      "evidencia": "recibo + relatório de gates G4–G7",
+      "pre": [
+        "T4.12, T4.15 e T4.16 aceitas"
+      ],
+      "leva": "K",
+      "status": "planejada"
+    }
   ]
 }

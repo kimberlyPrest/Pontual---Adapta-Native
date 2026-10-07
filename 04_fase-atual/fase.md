@@ -1,55 +1,70 @@
-# Fase 3 — CRM conversacional e qualificação assistida
+# Fase 4 — Follow-up, reativação e agendamento
 
 ## Resultado
 
-Atendimento ocorre em interface conversacional dentro da Central, com IA assistiva restrita à base aprovada, transbordo humano explícito, qualificação versionada por produto com ICP vigente, opt-out respeitado e configuração administrativa com publicação e rollback — sem canal real e sem autonomia da IA até os gates aprovarem.
+Cadências e reativações governadas recuperam oportunidades elegíveis; leads qualificados chegam a agendamento válido com handoff estruturado.
 
 ## Inclui
 
-RF-06 (ficha de qualificação), RF-09 (conversa unificada com fixture/importação), RF-10 (transbordo humano), RF-11 (agente assistivo), RF-12 (configuração administrativa versionada), RF-15 (supressão), RF-23 (ICP versionado), RN-03 (decisão humana no piloto), RN-04 (fora da base aprovada gera transbordo), RN-05 (lead ativo com responsável/estágio/próxima ação), RN-07 (opt-out prevalece), RN-13 (operação usa versão publicada), RN-14 (falha de integração mantém fila de exceção), RNF-02/03/04/05/08/10. Ativação do canal real depende de G1/G2/G5/G6.
+RF-13 (follow-up por inatividade), RF-14 (reativação segmentada), RF-15 (supressão), RF-16 (agendamento), RF-17 (handoff); RN-01, RN-03, RN-05, RN-08, RN-09, RN-10, RN-13, RN-14; RNF-02, RNF-04, RNF-05. Ativação do disparo real e da agenda externa depende de G4–G7.
 
 ## Demonstração
 
-Importar conversas sintéticas, abrir a conversa unificada de um lead, receber sugestão da IA dentro da base aprovada, provocar pergunta fora da base e ver o transbordo com motivo/contexto, assumir e retomar manualmente, concluir qualificação com ICP vigente, registrar opt-out, publicar uma alteração administrativa com rollback e conferir a timeline completa — tudo com o canal real bloqueado.
+Configurar régua versionada, gerar follow-up por inatividade, excluir opt-out do segmento de reativação com prévia, aprovar e disparar lote (simulação sem gates), registrar agendamento com confirmação, reagendar preservando histórico e gerar handoff estruturado ao apresentador — fechando com recibo CA-4-01..07.
 
 ## Critérios de aceite
 
-- **CA-3-01:** evento repetido do canal (ou reimportação) não duplica mensagem nem lead; a conversa é exibida por lead em ordem cronológica, sem alterar o histórico original.
-- **CA-3-02:** a IA sugere/responde somente dentro da base aprovada publicada; pergunta fora da base gera transbordo com motivo/contexto; nunca improvisa preço, contrato ou compromisso técnico.
-- **CA-3-03:** o humano assume e devolve o atendimento de modo explícito, sem disputa com a IA; enquanto o lead está transbordado, nenhuma resposta automática é enviada.
-- **CA-3-04:** a qualificação usa a versão vigente do ICP por produto e registra critérios e evidências; alteração de ICP não reclassifica o histórico silenciosamente.
-- **CA-3-05:** opt-out interrompe ações automáticas, impede inclusão em follow-up/reativação e aparece na timeline com data/hora e origem.
-- **CA-3-06:** toda alteração administrativa passa por rascunho, validação, publicação versionada e rollback; rascunhos não afetam leads em operação.
-- **CA-3-07:** indisponibilidade da IA (ou do canal) mantém o atendimento humano funcional; tentativa de ativar canal externo sem G1/G5/G6 é negada e auditada.
+- **CA-4-01:** régua versionada respeita intervalo, horário, limite e exceções homologados.
+- **CA-4-02:** opt-out, bloqueio ou inelegibilidade impedem follow-up e reativação.
+- **CA-4-03:** segmento informa critérios, tamanho, exclusões e prévia antes de ativação.
+- **CA-4-04:** disparo real exige aprovação humana e canal autorizado; reexecução não duplica envio.
+- **CA-4-05:** `agendado` só conta com data, hora, responsável e confirmação.
+- **CA-4-06:** reagendamento/cancelamento preservam histórico e ajustam o indicador sem apagamento.
+- **CA-4-07:** handoff contém produto, contexto, critérios e pendências sem expor dado desnecessário.
 
 ## Controles transversais de segurança
 
-- Fase 3 usa somente fixtures de conversa sintéticas; canal real exige G1 (fonte/fronteira), G5 (LGPD, opt-out, retenção) e G6 (contrato técnico do canal) antes de qualquer envio.
-- Nenhum envio automático existe nesta fase: a IA sugere, o humano decide; todo envio manual é auditado.
-- Base aprovada, ICP e configurações são versionados; rascunhos não afetam leads em operação (RN-13).
-- Evidências mascaram telefone, e-mail e IDs; tokens nunca aparecem em captura, log ou exportação.
-- Auditoria append-only para transbordos, retomadas, publicações, rollbacks e respostas manuais.
+- Fase 4 usa fixtures sintéticas; disparo real exige G5 (LGPD/opt-out/retenção) e G6 (contrato técnico do canal); agenda externa exige G7; cadência oficial exige G4.
+- Nenhum envio automático sem aprovação humana registrada (RN-03); a IA não dispara nada por conta própria.
+- Régua, segmento e disparo são versionados; rascunhos não afetam leads em operação (RN-13).
+- Evidências mascaram telefone, e-mail e IDs; auditoria append-only para aprovações, envios, negações e acessos a handoff.
 
 ## Fora desta fase
 
-Follow-up automático (Fase 4), reativação segmentada (Fase 4), agendamento integrado (Fase 4), handoff ao apresentador (Fase 4), metas numéricas congeladas (Fase 5, após baseline). A IA não envia mensagens por conta própria em nenhuma fase. Integrações novas de Ads e autonomia de campanhas seguem fora.
+Metas numéricas congeladas e medição de KPIs (Fase 5, após baseline); integração bidirecional com agenda externa (depende de G7, vira evolução); campanhas de mídia e autonomia de agentes (fora do programa); eventos pós-agendamento (adjacentes ao limite funcional, RN-01).
 
 ## Tasks
 
 | ID | Task | Dono | SPEC | Critério | Recorte da prova | Evidência esperada | Pré-condições | Status | Leva |
 |---|---|---|---|---|---|---|---|---|---|
-| T3.1 | Criar fixture de conversas e validador de esquema | Dev dados | SPEC-3-001 | CA-3-01 | RED/GREEN ingestão inválida | fixture + testes de atomicidade | Fase 2 aceita | ☐ | A |
-| T3.2 | Implementar ingestão idempotente de conversas | Dev dados | SPEC-3-001 | CA-3-01 | Principal/falha ingestão | log de lote + relatório sanitizado | T3.1 aceita | ☐ | B |
-| T3.3 | Implementar conversa unificada por lead | Dev frontend | SPEC-3-001 | CA-3-01 | GREEN fluxo principal | capturas + testes de ordem cronológica | T3.2 aceita | ☐ | C |
-| T3.4 | Implementar base aprovada versionada de respostas | Dev full-stack | SPEC-3-002 | CA-3-02 | RED/GREEN resposta fora da base | testes de versão e publicação | Fase 2 aceita | ☐ | C |
-| T3.5 | Implementar motor de sugestão com limite e fallback | Dev full-stack | SPEC-3-002 | CA-3-02 | Limite/falha de resposta | testes de limite e fallback | T3.4 aceita | ☐ | D |
-| T3.6 | Implementar transbordo com pausa da IA e retomada explícita | Dev full-stack | SPEC-3-003 | CA-3-03 | RED/GREEN transbordo | testes de pausa e retomada | T3.5 aceita | ☐ | E |
-| T3.7 | Implementar fila de transbordo e atribuição ao responsável | Dev frontend | SPEC-3-003 | CA-3-03 | GREEN fluxo principal | capturas da fila + testes | T3.6 aceita | ☐ | F |
-| T3.8 | Implementar timeline das conversas (append-only) | Dev backend | SPEC-3-001 | CA-3-01 | RED/GREEN auditoria | testes de timeline e negação de delete | T3.3 aceita | ☐ | F |
-| T3.9 | Implementar ICP versionado por produto | Dev full-stack | SPEC-3-004 | CA-3-04 | RED/GREEN versionamento | testes de vigência e versão | Fase 2 aceita | ☐ | G |
-| T3.10 | Implementar ficha de qualificação vinculada ao ICP vigente | Dev full-stack | SPEC-3-004 | CA-3-04 | Principal/limite de qualificação | capturas + testes de versão | T3.9 e T3.3 aceitas | ☐ | H |
-| T3.11 | Implementar opt-out e supressão | Dev full-stack | SPEC-3-005 | CA-3-05 | RED/GREEN supressão | trilha de opt-out + log de negação | T3.8 aceita | ☐ | H |
-| T3.12 | Implementar rascunho, validação e publicação versionada | Dev full-stack | SPEC-3-006 | CA-3-06 | RED/GREEN publicação | trilha de publicação | T3.4 e T3.9 aceitas | ☐ | I |
-| T3.13 | Implementar rollback de configuração | Dev full-stack | SPEC-3-006 | CA-3-06 | Limite/falha de rollback | captura do rollback + histórico | T3.12 aceita | ☐ | J |
-| T3.14 | Provar degradação segura e bloqueio do canal sem gates | QA | SPEC-3-007 | CA-3-07 | Falha/degradação | roteiro gravado + log de negação | T3.11, T3.12 e T3.13 aceitas | ☐ | K |
-| T3.15 | Demonstrar conversa ponta a ponta e emitir recibo final da Fase 3 | QA | SPEC-3-007 | CA-3-01..07 | Regressão integral | recibo CA-3-01..07 + relatório de gates G1/G2/G5/G6 | T3.14 aceita | ☐ | L |
+| T4.1 | Criar fixture de cadências e validador de esquema | Dev dados | SPEC-4-001 | CA-4-01 | RED/GREEN esquema inválido | fixture + testes de validação | Fase 3 aceita | ☐ | A |
+| T4.2 | Implementar modelo de régua versionada (rascunho/publicação/rollback) | Dev full-stack | SPEC-4-001 | CA-4-01 | RED/GREEN versionamento | testes de versão e RN-13 | T4.1 aceita | ☐ | B |
+| T4.3 | Implementar filtros de exclusão obrigatórios (opt-out/bloqueio/inelegibilidade) | Dev full-stack | SPEC-4-002 | CA-4-02 | RED/GREEN supressão | log de exclusões + testes de negação | T4.1 aceita | ☐ | B |
+| T4.4 | Criar fixtures de reativação, disparo e agendamentos | Dev dados | SPEC-4-002/003/004 | CA-4-02..05 | RED/GREEN fixtures | 3 fixtures + testes | T4.1 aceita | ☐ | B |
+| T4.5 | Implementar geração de próxima ação por inatividade | Dev full-stack | SPEC-4-001 | CA-4-01 | Principal/limite | log de ações + testes de intervalo | T4.2 e T4.3 aceitas | ☐ | C |
+| T4.6 | Implementar construtor de segmento com tamanho e exclusões | Dev full-stack | SPEC-4-002 | CA-4-03 | Principal/limite | prévia + testes de contagem | T4.3 aceita | ☐ | C |
+| T4.7 | Implementar prévia sanitizada antes de ativação | Dev frontend | SPEC-4-002 | CA-4-03 | GREEN fluxo principal | capturas da prévia + testes de máscara | T4.6 aceita | ☐ | D |
+| T4.8 | Implementar execução da régua com horário, limite e exceções | Dev full-stack | SPEC-4-001 | CA-4-01 | Limite/falha | testes de janela/limite/exceção | T4.5 aceita | ☐ | D |
+| T4.9 | Implementar preparação de lote a partir de régua e segmento | Dev full-stack | SPEC-4-003 | CA-4-04 | Principal | lote + testes de composição | T4.5 e T4.6 aceitas | ☐ | E |
+| T4.10 | Implementar aprovação humana obrigatória do lote | Dev full-stack | SPEC-4-003 | CA-4-04 | RED/GREEN aprovação | trilha de aprovação + testes de pendência | T4.9 aceita | ☐ | F |
+| T4.11 | Implementar disparo idempotente com fila de exceção | Dev full-stack | SPEC-4-003 | CA-4-04 | Limite/falha | log de envios + testes de reexecução | T4.10 aceita | ☐ | G |
+| T4.12 | Bloquear disparo real sem gates G5/G6 (negação auditada) | Dev backend | SPEC-4-003 | CA-4-04 | Falha | log de negação + testes de bloqueio | T4.11 aceita | ☐ | H |
+| T4.13 | Implementar registro de agendamento com campos obrigatórios (RN-09) | Dev full-stack | SPEC-4-004 | CA-4-05 | RED/GREEN campos | testes de validação server-side | Fase 3 aceita | ☐ | G |
+| T4.14 | Implementar estados e confirmação do agendamento | Dev full-stack | SPEC-4-004 | CA-4-05 | Principal/limite | capturas + testes de estado | T4.13 aceita | ☐ | H |
+| T4.15 | Implementar histórico append-only e indicador sem apagamento | Dev backend | SPEC-4-004 | CA-4-06 | RED/GREEN auditoria | testes de append-only + indicador | T4.14 aceita | ☐ | I |
+| T4.16 | Implementar geração de handoff com máscara por permissão | Dev full-stack | SPEC-4-005 | CA-4-07 | RED/GREEN máscara | handoff + testes de máscara | T4.15 aceita | ☐ | J |
+| T4.17 | Demonstrar ponta a ponta e emitir recibo final da Fase 4 | QA | SPEC-4-005 | CA-4-01..07 | Regressão integral | recibo + relatório de gates G4–G7 | T4.12, T4.15 e T4.16 aceitas | ☐ | K |
+
+## Levas
+
+- **A (fixture de cadências):** T4.1
+- **B (régua versionada, exclusões e fixtures):** T4.2, T4.3, T4.4
+- **C (geração de ação e segmento):** T4.5, T4.6
+- **D (prévia e execução da régua):** T4.7, T4.8
+- **E (preparação de lote):** T4.9
+- **F (aprovação humana):** T4.10
+- **G (disparo idempotente e agendamento):** T4.11, T4.13
+- **H (bloqueio de gates e estados):** T4.12, T4.14
+- **I (histórico append-only):** T4.15
+- **J (handoff):** T4.16
+- **K (recibo):** T4.17
