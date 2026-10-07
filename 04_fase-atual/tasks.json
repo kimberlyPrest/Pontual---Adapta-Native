@@ -36,7 +36,7 @@
       "dono": "Dev full-stack",
       "spec": "SPEC-4-002",
       "criterio": "CA-4-02",
-      "recorte": "RED/GREEN supressão",
+      "recote": "RED/GREEN supressão",
       "evidencia": "log de exclusões + testes de negação",
       "pre": [
         "T4.1 aceita"
@@ -132,7 +132,8 @@
       "id": "T4.10",
       "task": "Implementar aprovação humana obrigatória do lote",
       "dono": "Dev full-stack",
-      "spec": " release", "criterio": "CA-4-04",
+      "spec": "SPEC-4-003",
+      "criterio": "CA-4-04",
       "recorte": "RED/GREEN aprovação",
       "evidencia": "trilha de aprovação + testes de pendência",
       "pre": [
