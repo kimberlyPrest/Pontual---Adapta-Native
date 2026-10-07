@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "pontual-fase3/v1",
+  "status": "PLANEJADA",
+  "specs": 7,
+  "tasks": 15,
+  "tasks_list": [
+    {"id": "T3.1", "spec": "SPEC-3-001", "ca": "CA-3-01", "leva": "A", "dono": "Dev dados", "pre": "Fase 2 aceita"},
+    {"id": "T3.2", "spec": "SPEC-3-001", "ca": "CA-3-01", "leva": "B", "dono": "Dev dados", "pre": "T3.1 aceita"},
+    {"id": "T3.3", "spec": "SPEC-3-001", "ca": "CA-3-01", "leva": "C", "dono": "Dev frontend", "pre": "T3.2 aceita"},
+    {"id": "T3.4", "spec": "SPEC-3-002", "ca": "CA-3-02", "leva": "C", "dono": "Dev full-stack", "pre": "Fase 2 aceita"},
+    {"id": "T3.5", "spec": "SPEC-3-002", "ca": "CA-3-02", "leva": "D", "dono": "Dev full-stack", "pre": "T3.4 aceita"},
+    {"id": "T3.6", "spec": "SPEC-3-003", "ca": "CA-3-03", "leva": "E", "dono": "Dev full-stack", "pre": "T3.5 aceita"},
+    {"id": "T3.7", "spec": "SPEC-3-003", "ca": "CA-3-03", "leva": "F", "dono": "Dev frontend", "pre": "T3.6 aceita"},
+    {"id": "T3.8", "spec": "SPEC-3-001", "ca": "CA-3-01", "leva": "F", "dono": "Dev backend", "pre": "T3.3 aceita"},
+    {"id": "T3.9", "spec": "SPEC-3-004", "ca": "CA-3-04", "leva": "G", "dono": "Dev full-stack", "pre": "Fase 2 aceita"},
+    {"id": "T3.10", "spec": "SPEC-3-004", "ca": "CA-3-04", "leva": "H", "dono": "Dev full-stack", "pre": "T3.9 e T3.3 aceitas"},
+    {"id": "T3.11", "spec": "SPEC-3-005", "ca": "CA-3-05", "leva": "H", "dono": "Dev full-stack", "pre": "T3.8 aceita"},
+    {"id": "T3.12", "spec": "SPEC-3-006", "ca": "CA-3-06", "leva": "I", "dono": "Dev full-stack", "pre": "T3.4 e T3.9 aceitas"},
+    {"id": "T3.13", "spec": "SPEC-3-006", "ca": "CA-3-06", "leva": "J", "dono": "Dev full-stack", "pre": "T3.12 aceita"},
+    {"id": "T3.14", "spec": "SPEC-3-007", "ca": "CA-3-07", "leva": "K", "dono": "QA", "pre": "T3.11, T3.12 e T3.13 aceitas"},
+    {"id": "T3.15", "spec": "SPEC-3-007", "ca": "CA-3-01..07", "leva": "L", "dono": "QA", "pre": "T3.14 aceita"}
+  ],
+  "criterios": [
+    {"id": "CA-3-01", "spec": "SPEC-3-001", "resumo": "evento repetido/reimportação não duplica mensagem nem lead; conversa em ordem cronológica, histórico intacto"},
+    {"id": "CA-3-02", "spec": "SPEC-3-002", "resumo": "IA só dentro da base aprovada publicada; fora da base gera transbordo; nunca improvisa preço/contrato"},
+    {"id": "CA-3-03", "spec": "SPEC-3-003", "resumo": "humano assume/devolve explicitamente sem disputa com a IA; sem resposta automática em transbordo"},
+    {"id": "CA-3-04", "spec": "SPEC-3-004", "resumo": "qualificação usa versão vigente do ICP por produto com critérios/evidências; alteração não reclassifica histórico"},
+    {"id": "CA-3-05", "spec": "SPEC-3-005", "resumo": "opt-out interrompe ações automáticas, bloqueia cadências e aparece na timeline"},
+    {"id": "CA-3-06", "spec": "SPEC-3-006", "resumo": "alteração admin: rascunho → validação → publicação versionada → rollback; rascunho sem efeito em operação"},
+    {"id": "CA-3-07", "spec": "SPEC-3-007", "resumo": "IA/canal indisponíveis mantêm atendimento humano; ativação de canal sem G1/G5/G6 negada e auditada"}
+  ]
+}

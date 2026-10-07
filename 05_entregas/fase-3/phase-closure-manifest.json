@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "phase-closure/v1",
+  "phase": 3,
+  "project": "Pontual Tecnologia — Central de Aquisição e Qualificação",
+  "closedAt": "2026-10-07",
+  "sourceCommit": "8725e63795f8a3f2e41c85d1a05791ebc15a91c9",
+  "closure": {
+    "by": "Kim Prestes (consultora)",
+    "date": "2026-10-07",
+    "summary": "Conclusão da Fase 3 registrada pela consultora em 07/10/2026."
+  },
+  "inventory": [
+    {"path": "fase.md", "bytes": 6618},
+    {"path": "matriz-specs-fases.md", "bytes": 4088},
+    {"path": "specs/SPEC-3-001.md", "bytes": 5002},
+    {"path": "specs/SPEC-3-002.md", "bytes": 4449},
+    {"path": "specs/SPEC-3-003.md", "bytes": 4533},
+    {"path": "specs/SPEC-3-004.md", "bytes": 4302},
+    {"path": "specs/SPEC-3-005.md", "bytes": 4000},
+    {"path": "specs/SPEC-3-006.md", "bytes": 4301},
+    {"path": "specs/SPEC-3-007.md", "bytes": 4343},
+    {"path": "fixtures/conversas-fase3.csv", "bytes": 1737},
+    {"path": "tasks.json", "bytes": 3099}
+  ],
+  "standingObligations": [
+    "Gates G1 (fonte/fronteira CRM), G2 (ICP/dicionário), G5 (LGPD/WhatsApp/opt-out/retenção) e G6 (contrato técnico do canal) seguem condicionando o canal real e o ICP definitivo.",
+    "Gates G3 (baseline) e G6 (APIs Google/Meta Ads) seguem condicionando metas e integração de mídia.",
+    "A Fase 4 usa somente fixtures sintéticas; disparo real exige G5/G6, agenda externa exige G7 e cadência oficial exige G4."
+  ]
+}
