@@ -1,0 +1,10 @@
+data,plataforma,campanha,conjunto,anuncio,investimento,impressoes,cliques,leads_plataforma
+2026-09-01,google,Automec - Pesquisa - RJ,sistema loja material,G-anuncio-01,600.00,4000,120,8
+2026-09-08,google,Automec - Pesquisa - RJ,sistema loja material,G-anuncio-01,600.00,4100,118,7
+2026-09-15,google,Automec - Pesquisa - RJ,sistema loja material,G-anuncio-02,600.00,3900,95,6
+2026-09-22,google,Automec - Pesquisa - RJ,erp madeireira,G-anuncio-03,600.00,3500,90,5
+2026-09-25,google,Automec - Pesquisa - RJ,erp madeireira,G-anuncio-03,600.00,3600,92,6
+2026-09-29,google,Automec - Pesquisa - RJ,erp madeireira,G-anuncio-03,600.00,3700,97,8
+2026-09-05,meta,Automec - WhatsApp - Lojas RJ,lojistas 30-55,M-anuncio-01,400.00,9000,210,14
+2026-09-12,meta,Automec - WhatsApp - Lojas RJ,lojistas 30-55,M-anuncio-02,400.00,8800,190,11
+2026-09-19,meta,Automec - WhatsApp - Lojas RJ,interesse construcao,M-anuncio-03,400.00,12000,330,25

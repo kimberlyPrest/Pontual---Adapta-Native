@@ -1,0 +1,13 @@
+cnpj,razaosocial,nomefantasia,dataAbertura,situacaoCadastral,logradouro,bairro,municipio,uf,telefone,email
+11000001000152,Prospect 01 Comércio Sintético Ltda,Prospect 01,2019-02-15,ATIVA,"Rua Sintética, 101",Centro,Niterói,RJ,(21) 91000-0001,contato01@prospect.example.invalid
+11000002000105,Prospect 02 Comércio Sintético Ltda,Prospect 02,2019-03-15,ATIVA,"Rua Sintética, 102",Centro,Niterói,RJ,(21) 91000-0002,contato02@prospect.example.invalid
+11000003000141,Prospect 03 Comércio Sintético Ltda,Prospect 03,2019-04-15,ATIVA,"Rua Sintética, 103",Centro,Niterói,RJ,(21) 91000-0003,contato03@prospect.example.invalid
+11000004000196,Prospect 04 Comércio Sintético Ltda,Prospect 04,2019-05-15,ATIVA,"Rua Sintética, 104",Centro,Niterói,RJ,(21) 91000-0004,
+11000005000130,Prospect 05 Comércio Sintético Ltda,Prospect 05,2019-06-15,ATIVA,"Rua Sintética, 105",Centro,Niterói,RJ,(21) 91000-0005,contato05@prospect.example.invalid
+11000006000185,Prospect 06 Comércio Sintético Ltda,Prospect 06,2019-07-15,ATIVA,"Rua Sintética, 106",Centro,Niterói,RJ,(21) 91000-0006,contato06@prospect.example.invalid
+11000007000120,Prospect 07 Comércio Sintético Ltda,Prospect 07,2019-08-15,ATIVA,"Rua Sintética, 107",Centro,Niterói,RJ,(21) 91000-0007,contato07@prospect.example.invalid
+11000008000174,Prospect 08 Comércio Sintético Ltda,Prospect 08,2019-09-15,ATIVA,"Rua Sintética, 108",Centro,Niterói,RJ,(21) 91000-0008,contato08@prospect.example.invalid
+11000009000119,Prospect 09 Comércio Sintético Ltda,Prospect 09,2019-01-15,BAIXADA,"Rua Sintética, 109",Centro,Niterói,RJ,(21) 91000-0009,contato09@prospect.example.invalid
+11000010000143,Prospect 10 Comércio Sintético Ltda,Prospect 10,2019-02-15,ATIVA,"Rua Sintética, 110",Centro,Niterói,RJ,,contato10@prospect.example.invalid
+11000011000198,Prospect 11 Comércio Sintético Ltda,Prospect 11,2019-03-15,ATIVA,"Rua Sintética, 111",Centro,Niterói,RJ,21 91000-0003,contato11@prospect.example.invalid
+11000012000130,Prospect 12 Comércio Sintético Ltda,Prospect 12,2019-04-15,ATIVA,"Rua Sintética, 112",Centro,Niterói,RJ,(21) 91000-0012,contato12@prospect.example.invalid

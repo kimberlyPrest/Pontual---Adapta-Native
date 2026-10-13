@@ -1,0 +1,3 @@
+telefone,canal,direcao,conteudo,timestamp,autor
+5521900000000,whatsapp,entrada,"Bom dia, quero saber do sistema",2026-10-01T09:14:00-03:00,Maria Exemplo
+5521900000000,whatsapp,saida,"Bom dia, Maria! Posso te fazer duas perguntas?",2026-10-01T09:16:00-03:00,Lidiane

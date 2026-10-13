@@ -1,0 +1,166 @@
+{
+  "descricao": "Casos de teste da rota POST /backend/v1/integrations/inbound/lead. Dados fictícios.",
+  "casos": [
+    {
+      "nome": "valido_completo",
+      "token": "valido",
+      "esperado_status": 201,
+      "esperado": {
+        "duplicate": false
+      },
+      "corpo": {
+        "idempotency_key": "cap-001",
+        "contato_nome": "Paula Sintética",
+        "empresa_nome": "Loja Pi Sintética",
+        "telefone": "(21) 92000-0001",
+        "email": "paula@pi.example.invalid",
+        "origem": "google_ads",
+        "campanha": "Automec - Pesquisa - RJ",
+        "anuncio": "G-anuncio-01",
+        "utm": {
+          "source": "google",
+          "medium": "cpc",
+          "campaign": "automec-pesquisa-rj",
+          "content": "G-anuncio-01",
+          "term": "sistema loja material"
+        },
+        "produto": "automec",
+        "cidade": "Niterói",
+        "uf": "RJ",
+        "mensagem": "Quero conhecer o sistema."
+      }
+    },
+    {
+      "nome": "repetido_mesma_chave",
+      "token": "valido",
+      "esperado_status": 200,
+      "esperado": {
+        "replayed": true
+      },
+      "corpo": {
+        "idempotency_key": "cap-001",
+        "contato_nome": "Paula Sintética",
+        "telefone": "(21) 92000-0001"
+      }
+    },
+    {
+      "nome": "contato_ja_existe_outra_chave",
+      "token": "valido",
+      "esperado_status": 200,
+      "esperado": {
+        "duplicate": true
+      },
+      "corpo": {
+        "idempotency_key": "cap-002",
+        "contato_nome": "Paula",
+        "telefone": "21920000001",
+        "mensagem": "Voltei a ter interesse."
+      }
+    },
+    {
+      "nome": "so_email",
+      "token": "valido",
+      "esperado_status": 201,
+      "esperado": {
+        "duplicate": false
+      },
+      "corpo": {
+        "idempotency_key": "cap-003",
+        "contato_nome": "Rui Sintético",
+        "email": "rui@ro.example.invalid",
+        "origem": "site_organico"
+      }
+    },
+    {
+      "nome": "origem_inexistente",
+      "token": "valido",
+      "esperado_status": 201,
+      "esperado": {
+        "origem_gravada": "desconhecida"
+      },
+      "corpo": {
+        "idempotency_key": "cap-004",
+        "contato_nome": "Sara Sintética",
+        "telefone": "21920000004",
+        "origem": "tiktok_dancinha"
+      }
+    },
+    {
+      "nome": "campo_personalizado",
+      "token": "valido",
+      "esperado_status": 201,
+      "esperado": {
+        "custom_gravado": true
+      },
+      "corpo": {
+        "idempotency_key": "cap-005",
+        "contato_nome": "Téo Sintético",
+        "telefone": "21920000005",
+        "custom": {
+          "quantidade_de_caixas": 3
+        }
+      }
+    },
+    {
+      "nome": "sem_telefone_e_sem_email",
+      "token": "valido",
+      "esperado_status": 422,
+      "esperado": {
+        "campo": "telefone"
+      },
+      "corpo": {
+        "idempotency_key": "cap-006",
+        "contato_nome": "Sem Contato"
+      }
+    },
+    {
+      "nome": "telefone_sem_ddd",
+      "token": "valido",
+      "esperado_status": 422,
+      "esperado": {
+        "campo": "telefone"
+      },
+      "corpo": {
+        "idempotency_key": "cap-007",
+        "contato_nome": "Sem DDD",
+        "telefone": "92000-0007"
+      }
+    },
+    {
+      "nome": "sem_token",
+      "token": null,
+      "esperado_status": 401,
+      "esperado": {},
+      "corpo": {
+        "idempotency_key": "cap-008",
+        "telefone": "21920000008"
+      }
+    },
+    {
+      "nome": "token_revogado",
+      "token": "revogado",
+      "esperado_status": 401,
+      "esperado": {},
+      "corpo": {
+        "idempotency_key": "cap-009",
+        "telefone": "21920000009"
+      }
+    },
+    {
+      "nome": "contato_suprimido_volta",
+      "token": "valido",
+      "esperado_status": 200,
+      "esperado": {
+        "duplicate": true,
+        "transbordo_aberto": true,
+        "reativado": false
+      },
+      "preparo": "registrar opt-out do lead criado em so_email antes de executar",
+      "corpo": {
+        "idempotency_key": "cap-010",
+        "email": "rui@ro.example.invalid",
+        "mensagem": "Quero falar com vocês de novo."
+      }
+    }
+  ]
+}

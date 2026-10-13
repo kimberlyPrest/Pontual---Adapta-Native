@@ -1,0 +1,390 @@
+{
+  "descricao": "Eventos de exemplo no formato da Z-API, para o endereço de recebimento do canal. Dados fictícios. O canal de teste deve ter instanceId = INSTANCIA-DE-TESTE-0001.",
+  "casos": [
+    {
+      "nome": "texto_de_contato_conhecido",
+      "preparo": "lead existente com telefone 5521920000001",
+      "esperado": "1 mensagem de entrada na conversa do lead; não lidas = 1",
+      "evento": {
+        "type": "ReceivedCallback",
+        "instanceId": "INSTANCIA-DE-TESTE-0001",
+        "messageId": "Z-MSG-0001",
+        "phone": "5521920000001",
+        "fromMe": false,
+        "momment": 1760962443000,
+        "status": "RECEIVED",
+        "chatName": "Contato Sintético",
+        "senderName": "Contato Sintético",
+        "isGroup": false,
+        "isNewsletter": false,
+        "broadcast": false,
+        "isEdit": false,
+        "connectedPhone": "5521980000000",
+        "text": {
+          "message": "Bom dia, quero saber do sistema"
+        }
+      }
+    },
+    {
+      "nome": "mesmo_evento_repetido",
+      "esperado": "nenhuma mensagem nova; evento registrado como repetido",
+      "evento": {
+        "type": "ReceivedCallback",
+        "instanceId": "INSTANCIA-DE-TESTE-0001",
+        "messageId": "Z-MSG-0001",
+        "phone": "5521920000001",
+        "fromMe": false,
+        "momment": 1760962443000,
+        "status": "RECEIVED",
+        "chatName": "Contato Sintético",
+        "senderName": "Contato Sintético",
+        "isGroup": false,
+        "isNewsletter": false,
+        "broadcast": false,
+        "isEdit": false,
+        "connectedPhone": "5521980000000",
+        "text": {
+          "message": "Bom dia, quero saber do sistema"
+        }
+      }
+    },
+    {
+      "nome": "numero_desconhecido_com_anuncio",
+      "esperado": "lead novo na etapa de entrada, origem meta_ads, anúncio M-anuncio-01 gravado no lead e na conversa; conversa em Sem dono",
+      "evento": {
+        "type": "ReceivedCallback",
+        "instanceId": "INSTANCIA-DE-TESTE-0001",
+        "messageId": "Z-MSG-0002",
+        "phone": "5521930000002",
+        "fromMe": false,
+        "momment": 1760962443000,
+        "status": "RECEIVED",
+        "chatName": "Contato Sintético",
+        "senderName": "Contato Sintético",
+        "isGroup": false,
+        "isNewsletter": false,
+        "broadcast": false,
+        "isEdit": false,
+        "connectedPhone": "5521980000000",
+        "text": {
+          "message": "Olá! Vi o anúncio e quero conhecer o sistema."
+        },
+        "externalAdReply": {
+          "sourceType": "ad",
+          "sourceId": "M-anuncio-01",
+          "sourceUrl": "https://fb.example.invalid/ad/M-anuncio-01",
+          "ctwaClid": "CLIQUE-SINTETICO-0002"
+        }
+      }
+    },
+    {
+      "nome": "numero_desconhecido_com_codigo",
+      "preparo": "código [G07] cadastrado para a campanha Automec - Pesquisa - RJ",
+      "esperado": "lead novo ligado à campanha do código, sinal 3",
+      "evento": {
+        "type": "ReceivedCallback",
+        "instanceId": "INSTANCIA-DE-TESTE-0001",
+        "messageId": "Z-MSG-0003",
+        "phone": "5521930000003",
+        "fromMe": false,
+        "momment": 1760962443000,
+        "status": "RECEIVED",
+        "chatName": "Contato Sintético",
+        "senderName": "Contato Sintético",
+        "isGroup": false,
+        "isNewsletter": false,
+        "broadcast": false,
+        "isEdit": false,
+        "connectedPhone": "5521980000000",
+        "text": {
+          "message": "Olá! Quero conhecer o sistema. [G07]"
+        }
+      }
+    },
+    {
+      "nome": "numero_desconhecido_sem_sinal",
+      "esperado": "lead novo com a origem padrão do canal; aparece em Sem anúncio identificado se a origem for paga",
+      "evento": {
+        "type": "ReceivedCallback",
+        "instanceId": "INSTANCIA-DE-TESTE-0001",
+        "messageId": "Z-MSG-0004",
+        "phone": "5521930000004",
+        "fromMe": false,
+        "momment": 1760962443000,
+        "status": "RECEIVED",
+        "chatName": "Contato Sintético",
+        "senderName": "Contato Sintético",
+        "isGroup": false,
+        "isNewsletter": false,
+        "broadcast": false,
+        "isEdit": false,
+        "connectedPhone": "5521980000000",
+        "text": {
+          "message": "Oi"
+        }
+      }
+    },
+    {
+      "nome": "mensagem_de_grupo",
+      "esperado": "ignorado; nenhum lead, nenhuma conversa",
+      "evento": {
+        "type": "ReceivedCallback",
+        "instanceId": "INSTANCIA-DE-TESTE-0001",
+        "messageId": "Z-MSG-0005",
+        "phone": "120363000000000000-group",
+        "fromMe": false,
+        "momment": 1760962443000,
+        "status": "RECEIVED",
+        "chatName": "Contato Sintético",
+        "senderName": "Contato Sintético",
+        "isGroup": true,
+        "isNewsletter": false,
+        "broadcast": false,
+        "isEdit": false,
+        "connectedPhone": "5521980000000",
+        "text": {
+          "message": "mensagem em grupo"
+        }
+      }
+    },
+    {
+      "nome": "enviada_pelo_celular",
+      "esperado": "mensagem de saída marcada como pelo celular; tentativa do dia registrada",
+      "evento": {
+        "type": "ReceivedCallback",
+        "instanceId": "INSTANCIA-DE-TESTE-0001",
+        "messageId": "Z-MSG-0006",
+        "phone": "5521920000001",
+        "fromMe": true,
+        "momment": 1760962443000,
+        "status": "RECEIVED",
+        "chatName": "Contato Sintético",
+        "senderName": "Contato Sintético",
+        "isGroup": false,
+        "isNewsletter": false,
+        "broadcast": false,
+        "isEdit": false,
+        "connectedPhone": "5521980000000",
+        "text": {
+          "message": "Oi, aqui é a Lidiane"
+        }
+      }
+    },
+    {
+      "nome": "imagem",
+      "esperado": "mensagem do tipo imagem com legenda; arquivo baixado para o armazenamento",
+      "evento": {
+        "type": "ReceivedCallback",
+        "instanceId": "INSTANCIA-DE-TESTE-0001",
+        "messageId": "Z-MSG-0007",
+        "phone": "5521920000001",
+        "fromMe": false,
+        "momment": 1760962443000,
+        "status": "RECEIVED",
+        "chatName": "Contato Sintético",
+        "senderName": "Contato Sintético",
+        "isGroup": false,
+        "isNewsletter": false,
+        "broadcast": false,
+        "isEdit": false,
+        "connectedPhone": "5521980000000",
+        "image": {
+          "imageUrl": "https://arquivos.example.invalid/foto.jpg",
+          "caption": "Foto da loja",
+          "mimeType": "image/jpeg"
+        }
+      }
+    },
+    {
+      "nome": "audio",
+      "esperado": "mensagem do tipo áudio; se houver agente ativo, transbordo MIDIA",
+      "evento": {
+        "type": "ReceivedCallback",
+        "instanceId": "INSTANCIA-DE-TESTE-0001",
+        "messageId": "Z-MSG-0008",
+        "phone": "5521920000001",
+        "fromMe": false,
+        "momment": 1760962443000,
+        "status": "RECEIVED",
+        "chatName": "Contato Sintético",
+        "senderName": "Contato Sintético",
+        "isGroup": false,
+        "isNewsletter": false,
+        "broadcast": false,
+        "isEdit": false,
+        "connectedPhone": "5521980000000",
+        "audio": {
+          "audioUrl": "https://arquivos.example.invalid/audio.ogg",
+          "mimeType": "audio/ogg",
+          "seconds": 12,
+          "ptt": true
+        }
+      }
+    },
+    {
+      "nome": "documento",
+      "esperado": "mensagem do tipo documento com o nome do arquivo",
+      "evento": {
+        "type": "ReceivedCallback",
+        "instanceId": "INSTANCIA-DE-TESTE-0001",
+        "messageId": "Z-MSG-0009",
+        "phone": "5521920000001",
+        "fromMe": false,
+        "momment": 1760962443000,
+        "status": "RECEIVED",
+        "chatName": "Contato Sintético",
+        "senderName": "Contato Sintético",
+        "isGroup": false,
+        "isNewsletter": false,
+        "broadcast": false,
+        "isEdit": false,
+        "connectedPhone": "5521980000000",
+        "document": {
+          "documentUrl": "https://arquivos.example.invalid/tabela.pdf",
+          "fileName": "tabela.pdf",
+          "mimeType": "application/pdf"
+        }
+      }
+    },
+    {
+      "nome": "estado_entregue",
+      "preparo": "mensagem enviada pela Central com provider_message_id = Z-OUT-0001",
+      "esperado": "estado entregue",
+      "evento": {
+        "type": "MessageStatusCallback",
+        "instanceId": "INSTANCIA-DE-TESTE-0001",
+        "status": "RECEIVED",
+        "ids": [
+          "Z-OUT-0001"
+        ],
+        "momment": 1760962500000,
+        "phone": "5521920000001",
+        "isGroup": false
+      }
+    },
+    {
+      "nome": "estado_lida",
+      "esperado": "estado lida",
+      "evento": {
+        "type": "MessageStatusCallback",
+        "instanceId": "INSTANCIA-DE-TESTE-0001",
+        "status": "READ",
+        "ids": [
+          "Z-OUT-0001"
+        ],
+        "momment": 1760962560000,
+        "phone": "5521920000001",
+        "isGroup": false
+      }
+    },
+    {
+      "nome": "estado_fora_de_ordem",
+      "esperado": "estado continua lida; não volta para enviada",
+      "evento": {
+        "type": "MessageStatusCallback",
+        "instanceId": "INSTANCIA-DE-TESTE-0001",
+        "status": "SENT",
+        "ids": [
+          "Z-OUT-0001"
+        ],
+        "momment": 1760962440000,
+        "phone": "5521920000001",
+        "isGroup": false
+      }
+    },
+    {
+      "nome": "recusa_do_contato",
+      "esperado": "transbordo RECUSA aberto; supressão só depois da confirmação humana; envios automáticos pendentes cancelados",
+      "evento": {
+        "type": "ReceivedCallback",
+        "instanceId": "INSTANCIA-DE-TESTE-0001",
+        "messageId": "Z-MSG-0010",
+        "phone": "5521920000001",
+        "fromMe": false,
+        "momment": 1760962443000,
+        "status": "RECEIVED",
+        "chatName": "Contato Sintético",
+        "senderName": "Contato Sintético",
+        "isGroup": false,
+        "isNewsletter": false,
+        "broadcast": false,
+        "isEdit": false,
+        "connectedPhone": "5521980000000",
+        "text": {
+          "message": "Não tenho interesse"
+        }
+      }
+    },
+    {
+      "nome": "contato_suprimido_escreve",
+      "preparo": "lead do telefone 5521920000005 suprimido",
+      "esperado": "mensagem gravada; nenhuma ação criada; transbordo de contato suprimido",
+      "evento": {
+        "type": "ReceivedCallback",
+        "instanceId": "INSTANCIA-DE-TESTE-0001",
+        "messageId": "Z-MSG-0011",
+        "phone": "5521920000005",
+        "fromMe": false,
+        "momment": 1760962443000,
+        "status": "RECEIVED",
+        "chatName": "Contato Sintético",
+        "senderName": "Contato Sintético",
+        "isGroup": false,
+        "isNewsletter": false,
+        "broadcast": false,
+        "isEdit": false,
+        "connectedPhone": "5521980000000",
+        "text": {
+          "message": "Mudei de ideia, pode me ligar?"
+        }
+      }
+    },
+    {
+      "nome": "instancia_errada",
+      "esperado": "recusado (401) e registrado como negado",
+      "evento": {
+        "type": "ReceivedCallback",
+        "instanceId": "OUTRA-INSTANCIA",
+        "messageId": "Z-MSG-0012",
+        "phone": "5521920000001",
+        "fromMe": false,
+        "momment": 1760962443000,
+        "status": "RECEIVED",
+        "chatName": "Contato Sintético",
+        "senderName": "Contato Sintético",
+        "isGroup": false,
+        "isNewsletter": false,
+        "broadcast": false,
+        "isEdit": false,
+        "connectedPhone": "5521980000000",
+        "text": {
+          "message": "teste"
+        }
+      }
+    },
+    {
+      "nome": "segredo_errado_no_endereco",
+      "esperado": "recusado (401) e registrado como negado",
+      "endereco": "usar um segredo diferente do do canal",
+      "evento": {
+        "type": "ReceivedCallback",
+        "instanceId": "INSTANCIA-DE-TESTE-0001",
+        "messageId": "Z-MSG-0013",
+        "phone": "5521920000001",
+        "fromMe": false,
+        "momment": 1760962443000,
+        "status": "RECEIVED",
+        "chatName": "Contato Sintético",
+        "senderName": "Contato Sintético",
+        "isGroup": false,
+        "isNewsletter": false,
+        "broadcast": false,
+        "isEdit": false,
+        "connectedPhone": "5521980000000",
+        "text": {
+          "message": "teste"
+        }
+      }
+    }
+  ]
+}

@@ -1,11 +1,10 @@
-lead_id,lead_nome,canal,ultima_interacao_dias,intervalo_regua_dias,horario_inicio,horario_fim,limite_tentativas,excecao,motivo_excecao
-L001,Lead Alfa Sintetico,whatsapp,5,3,09:00,18:00,5,nao,
-L002,Lead Bravo Sintetico,whatsapp,10,3,09:00,18:00,5,nao,
-L003,Lead Charlie Sintetico,whatsapp,2,3,09:00,18:00,5,nao,
-L004,Lead Delta Sintetico,whatsapp,7,3,09:00,18:00,5,sim,cliente pediu pausa ate proximo trimestre
-L005,Lead Eco Sintetico,whatsapp,30,3,09:00,18:00,5,nao,
-L006,Lead Foxtrot Sintetico,whatsapp,4,3,09:00,18:00,5,nao,
-L007,Lead Golf Sintetico,whatsapp,21,3,09:00,18:00,5,sim,conta compartilhada em revisao juridica
-L008,Lead Hotel Sintetico,whatsapp,6,3,09:00,18:00,5,nao,
-L009,Lead India Sintetico,whatsapp,45,3,09:00,18:00,5,nao,
-L010,Lead Juliet Sintetico,whatsapp,3,3,09:00,18:00,5,nao,
+caso,regua,tentativa_numero,registrada_em,resultado,lead_suprimido,esperado_proxima_em,esperado_canal,esperado_ultima,observacao
+C1,padrao,1,2026-10-13T10:00,sem_resposta,nao,2026-10-15T10:00,ligacao,nao,terça + 2 dias úteis = quinta
+C2,padrao,1,2026-10-16T17:50,sem_resposta,nao,2026-10-20T17:50,ligacao,nao,sexta + 2 dias úteis = terça (pula o fim de semana)
+C3,padrao,2,2026-10-15T10:00,sem_resposta,nao,2026-10-21T10:00,whatsapp,nao,quinta + 4 dias úteis = quarta seguinte
+C4,padrao,3,2026-10-21T10:00,sem_resposta,nao,,,sim,última tentativa: sem proposta; perguntar o que fazer
+C5,padrao,1,2026-10-13T19:30,sem_resposta,nao,2026-10-16T09:00,ligacao,nao,hora depois do fim da janela: vai para o início do próximo dia útil
+C6,padrao,1,2026-10-13T07:15,sem_resposta,nao,2026-10-15T09:00,ligacao,nao,hora antes do início da janela: vai para o início da janela
+C7,indicacao,1,2026-10-19T09:30,sem_resposta,nao,2026-10-20T09:30,ligacao,nao,"régua de indicação: intervalos 0,1,2,3,5 e canais alternados começando por whatsapp"
+C8,padrao,1,2026-10-13T10:00,respondeu,nao,,,nao,respondeu: sem proposta da régua; pede a próxima ação
+C9,padrao,1,2026-10-13T10:00,sem_resposta,sim,,,nao,lead suprimido: registro negado
